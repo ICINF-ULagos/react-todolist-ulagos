@@ -1,8 +1,22 @@
 import { useState, useEffect } from 'react'
 
-import logo from '../logo.svg';
+import { GenericList } from '../../components/common'
 
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzcyYWQ3OTAxNWRiMjAwMTc1NGEwZDkiLCJpYXQiOjE2Njg0NjQ0MjV9.YDKiwb-kpBYZ7FqOsJFWwaf35DVZO597NfBfB4YstbI"
+
+const listExample = [
+    {
+        'name': "a"
+    },{
+        'name': "b"
+    },{
+        'name': "c"
+    },{
+        'name': "d"
+    },{
+        'name': "e"
+    }
+]
 
 function Home() {
     const [tasks, setTasks] = useState([]);
@@ -52,16 +66,10 @@ function Home() {
                 <input type="text" name="description" />
                 <button type="submit">Nueva tarea</button>
             </form>
+            
+            <GenericList data={tasks} label="owner"/>
+            <GenericList data={listExample} label="name" variant="example"/>
 
-            <ul>
-                {
-                    tasks.map(function (task, index) {
-                        return (
-                            <li key={index}>{task.description}</li>
-                        )
-                    })
-                }
-            </ul>
             <div style={{ display: 'flex' }}>
 
             </div>

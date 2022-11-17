@@ -1,4 +1,4 @@
-import HomeScreen from './screens/home'
+import HomeScreen from './screens/home/home'
 import './App.css';
 
 function App() {
