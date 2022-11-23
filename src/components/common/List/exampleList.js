@@ -6,7 +6,7 @@ function exampleList({ data, label = "description" }) {
             {
                 data.map(function (item, index) {
                     return (
-                        <div key={index}>example {item[label]}</div>
+                        <div key={index}>{item[label]}</div>
                     )
                 })
             }

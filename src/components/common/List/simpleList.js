@@ -6,7 +6,7 @@ function simpleList({ data, label = "description" }) {
             {
                 data.map(function (item, index) {
                     return (
-                        <li key={index}>simple {item[label]}</li>
+                        <li key={index}>{item[label]}</li>
                     )
                 })
             }

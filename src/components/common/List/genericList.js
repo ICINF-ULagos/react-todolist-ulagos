@@ -3,7 +3,6 @@ import ExampleList from './exampleList'
 
 
 function genericList({ variant = "simple", ...props }) {
-    console.log(props)
     if (variant === "simple") {
         return (
             <SimpleList {...props} />
