@@ -1,0 +1,21 @@
+input[type=text], select {
+    padding: 20px;
+    margin-bottom: 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    
+  }
+
+  button[type=submit] {
+    margin-top: 5px;
+    height: 30px;
+    background-color: #4CAF50;
+    color: white;
+    margin-left: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    align-items: center;
+  }

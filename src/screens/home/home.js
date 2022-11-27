@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 
 import { GenericList } from '../../components/common'
+import Taskboard from '../taskboard/Taskboard'
+import './home.css' 
 
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzcyYWQ3OTAxNWRiMjAwMTc1NGEwZDkiLCJpYXQiOjE2Njg0NjQ0MjV9.YDKiwb-kpBYZ7FqOsJFWwaf35DVZO597NfBfB4YstbI"
 
@@ -60,14 +62,14 @@ function Home() {
     return (
         <header className="App-header">
             <p>
-                Home
+                Lista de tareas
             </p>
             <form style={{ display: 'flex', height: '30px' }} onSubmit={submitTask}>
                 <input type="text" name="description" />
                 <button type="submit">Nueva tarea</button>
             </form>
             
-            <GenericList data={tasks}/>
+            <Taskboard data={tasks}/>
 
             <div style={{ display: 'flex' }}>
 
