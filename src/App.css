@@ -36,3 +36,121 @@
     transform: rotate(360deg);
   }
 }
+
+nav{
+  border: 1px solid black;
+  max-height: 5vh;
+  min-height: 4vh;
+}
+.center_class{
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+}
+.task_board{
+  width: max-content;
+  border: 1px solid black;
+}
+
+.completada_pendiente{
+  padding: 10vh;
+  height: fit-content;
+}
+.pendientes{
+  float: left;
+  width: 47%;
+  height: fit-content;
+  border: 1px solid black;
+}
+.pendientes nav{
+  background-image: linear-gradient(to bottom, #ffff3c, #ffe089, #ffdce0, #fff0ff, #ffffff);
+}
+.pendientes p{
+  font-weight: bold;
+}
+.completadas{
+  float: right;
+  width: 47%;
+  border: 1px solid black;
+  height: fit-content;
+}
+.completadas nav{
+  background-image: linear-gradient(to bottom, #ffff3c, #ffe089, #ffdce0, #fff0ff, #ffffff);
+}
+.completadas p{
+  font-weight: bold;
+}
+
+
+
+
+
+.tareas_pendientes{
+  display: flex;
+  justify-content: space-around;
+  padding-right: 5vh;
+}
+
+.tareas_completadas{
+  display: flex;
+  justify-content: space-around;
+  padding-right: 5vh;
+}
+
+.contenedor_estilo_tareas{
+  padding-top: 2vh;
+
+}
+
+.estilo_tareas{
+  padding: 1vh;
+  background-color: #ffff3c;
+  border: 1px solid black;
+  min-width: 10vh;
+  max-width: 40vh;
+}
+
+.contenedor_titulo_tareas{
+  text-align: left;
+  padding-left: 1vh;
+  padding-bottom: 3vh;
+  }
+
+.titulo_tareas{
+  font-size: 36px;
+  font-weight: 500;
+}
+
+ul{
+  list-style-type: none;
+}
+
+
+.dots {
+  font-size: 36px; 
+  line-height: 0; 
+  margin-top: -10px; 
+  letter-spacing: -2px; 
+}
+
+.boton_tareas{
+  background: none;
+  border: none;
+  float: right;
+  font-weight: 700;
+  height: 5vh;
+}
+
+.boton_tareas:hover{
+  font-weight: normal;
+  background-color: #00ff50;
+  border-radius: 9px;
+  cursor: pointer;
+
+}
+
+.estilo_tareas nav{
+  background-image: none;
+  border: none; 
+  padding: none;
+}

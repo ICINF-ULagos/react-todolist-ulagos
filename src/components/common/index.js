@@ -1,3 +1,3 @@
 import GenericList from './List/genericList'
-
-export { GenericList }
+import simpleList from './List/simpleList'
+export { GenericList, simpleList }
