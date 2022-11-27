@@ -1,6 +1,4 @@
-
-
-function simpleList({ data, label = "description" }) {
+function Taskboard({ data, label = "description" }) {
 
     return (
         <ul>
@@ -22,4 +20,4 @@ function simpleList({ data, label = "description" }) {
     )
 }
 
-export default simpleList;
+export default Taskboard;

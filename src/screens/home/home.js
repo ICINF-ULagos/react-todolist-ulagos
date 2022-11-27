@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 
 import { GenericList } from '../../components/common'
 
+import Taskboard from '../Taskboard/Taskboard'
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzcyYWQ3OTAxNWRiMjAwMTc1NGEwZDkiLCJpYXQiOjE2Njg0NjQ0MjV9.YDKiwb-kpBYZ7FqOsJFWwaf35DVZO597NfBfB4YstbI"
 
 const listExample = [
@@ -67,7 +68,7 @@ function Home() {
                 <button type="submit">Nueva tarea</button>
             </form>
             
-            <GenericList data={tasks}/>
+            <Taskboard data={tasks}/>
 
             <div style={{ display: 'flex' }}>
 
