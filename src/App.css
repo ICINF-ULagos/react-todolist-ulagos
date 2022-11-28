@@ -100,7 +100,7 @@ h1 {
 
 .todo-row{
   padding: 1%;
-  display: grid;
+  display: inline-grid;
   border-radius: 10px;
   border-left: 3px solid #ff7614;
   background-color: #ffffff;
@@ -176,7 +176,7 @@ h1 {
 .dropdown {
   display: inline-block;
   position: relative;
-  
+  text-align: right;
 }
 
 .dropdown-content {
