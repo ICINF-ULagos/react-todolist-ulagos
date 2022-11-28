@@ -67,7 +67,7 @@ function Home() {
                 <button type="submit">Nueva tarea</button>
             </form>
             
-            <GenericList data={tasks}/>
+            <GenericList variant='simple' data={tasks}/>
 
             <div style={{ display: 'flex' }}>
 

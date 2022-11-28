@@ -1,8 +1,8 @@
 import SimpleList from './simpleList'
 import ExampleList from './exampleList'
+import CardList from './cardList'
 
-
-function genericList({ variant = "simple", ...props }) {
+function genericList({ variant ,...props }) {
     if (variant === "simple") {
         return (
             <SimpleList {...props} />
@@ -10,6 +10,10 @@ function genericList({ variant = "simple", ...props }) {
     } else if (variant === "example") {
         return (
             <ExampleList {...props} />
+        )
+    } else if (variant === "card"){
+        return (
+            <CardList {...props} />
         )
     }
 }
