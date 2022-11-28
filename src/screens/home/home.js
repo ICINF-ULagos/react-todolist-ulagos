@@ -58,7 +58,7 @@ function Home() {
     }
 
     return (
-        <header className="App-header">
+        <header style={{minHeight: '15rem'}} className="App-header">
             <p>
                 Home
             </p>
@@ -66,12 +66,6 @@ function Home() {
                 <input type="text" name="description" />
                 <button type="submit">Nueva tarea</button>
             </form>
-            
-            <GenericList data={tasks}/>
-
-            <div style={{ display: 'flex' }}>
-
-            </div>
         </header>
     )
 }
