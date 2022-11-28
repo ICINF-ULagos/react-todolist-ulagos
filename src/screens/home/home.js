@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import TaskBoard from './taskboard/taskBoard'
+import TaskBoard from '../taskboard/taskBoard'
 import { GenericList } from '../../components/common'
 
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzcyYWQ3OTAxNWRiMjAwMTc1NGEwZDkiLCJpYXQiOjE2Njg0NjQ0MjV9.YDKiwb-kpBYZ7FqOsJFWwaf35DVZO597NfBfB4YstbI"
