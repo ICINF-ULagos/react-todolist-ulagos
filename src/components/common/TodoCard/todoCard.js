@@ -54,6 +54,7 @@ const TodoCard = ({number, id, title, isDone }) => {
           color: 'white',
           border: 'none',
           fontSize: '1rem',
+          cursor: 'pointer'
 
         }}> Completar </button>
 
@@ -62,7 +63,8 @@ const TodoCard = ({number, id, title, isDone }) => {
           borderRadius: '6px',
           color: 'white',
           border: 'none',
-          fontSize: '1rem'
+          fontSize: '1rem',
+          cursor: 'pointer'
         }}> Borrar </button>
       </div>
     </section>
