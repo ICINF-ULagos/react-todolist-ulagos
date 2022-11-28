@@ -3,11 +3,19 @@ import React,{useState, useRef} from 'react'
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzcyYWQ3OTAxNWRiMjAwMTc1NGEwZDkiLCJpYXQiOjE2Njg0NjQ0MjV9.YDKiwb-kpBYZ7FqOsJFWwaf35DVZO597NfBfB4YstbI"
 
 
-
-const updateTask = async (id) => {
-    const body = JSON.stringify({
-        completed: "true",
-    })
+const updateTask = async (id, completo) => {
+    let body
+    if(completo === true){
+        body = JSON.stringify({
+            "completed": true,
+        })
+    }
+    else{
+        body = JSON.stringify({
+            "completed": false,
+        })
+    }
+    
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + token
@@ -29,12 +37,10 @@ function SimpleList({ data, label = "description" }) {
 
     const comp_pen = (i, item) => {
         if(nameModal.current[i].value === "Completado"){
-            console.log(nameModal.current[i].value)
-            updateTask(item._id)
-            console.log(item)
+            updateTask(item._id, true)
         }
         else{
-            console.log(item)
+            updateTask(item._id, false)
         }
     }
     return (
@@ -45,6 +51,7 @@ function SimpleList({ data, label = "description" }) {
                         <div className="contenedor_estilo_tareas">
                             <div className='contenedor_modal'>
                                 <select className="modal" ref={(element) => {nameModal.current[index] = element}} hidden="true" onClick={() =>{comp_pen(index, item)}}>
+                                    <option disabled selected value> -- seleccione una opcion -- </option>
                                     <option value={"Completado"} className='modal_completado'>Completado</option>
                                     <option value={"Pendiente"} className='modal_pendiente'>Pendiente</option>
                                 </select>

@@ -52,9 +52,24 @@ nav{
   border: 1px solid black;
 }
 
+
+form{
+  padding-bottom: 2vh;
+}
+
+
+.titulo{
+  margin: 0;
+}
+
+
+
+
+
 .completada_pendiente{
   padding: 10vh;
   height: fit-content;
+  color: black;
 }
 .pendientes{
   float: left;
@@ -90,13 +105,15 @@ nav{
 .tareas_pendientes{
   display: flex;
   justify-content: space-around;
-  padding-right: 5vh;
+  width: fit-content;
+  padding: 3vh;
 }
 
 .tareas_completadas{
   display: flex;
   justify-content: space-around;
-  padding-right: 5vh;
+  width: fit-content;
+  padding: 3vh;
 }
 
 .contenedor_estilo_tareas{
@@ -108,13 +125,12 @@ nav{
   padding: 1vh;
   background-color: #ffff3c;
   border: 1px solid black;
-  min-width: 10vh;
+  min-width: 35vh;
   max-width: 40vh;
 }
 
 .contenedor_titulo_tareas{
   text-align: left;
-  padding-left: 1vh;
   padding-bottom: 3vh;
   }
 
@@ -125,6 +141,7 @@ nav{
 
 ul{
   list-style-type: none;
+  padding: 0;
 }
 
 

@@ -1,9 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect} from 'react'
 import { GenericList} from '../../components/common'
 
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzcyYWQ3OTAxNWRiMjAwMTc1NGEwZDkiLCJpYXQiOjE2Njg0NjQ0MjV9.YDKiwb-kpBYZ7FqOsJFWwaf35DVZO597NfBfB4YstbI"
-
-
 
 
 function Home() {
@@ -36,17 +34,17 @@ function Home() {
             setTasks_C(responseBody.data)
         })()
     }, []);
-
+    
     return (
         <div className='center_class'>
             <div className='task_board'>
                 <nav>
-                    <p>task_board</p> 
+                    <p className='titulo'>task_board</p> 
                 </nav>
                 <div className='completada_pendiente'>
                     <div className='pendientes'>
                         <nav>
-                            <p>Pendientes</p> 
+                            <p className='titulo'>Pendientes</p> 
                         </nav>
                         <div className='tareas_pendientes'>
                             <GenericList data={tasks}/>
@@ -54,7 +52,7 @@ function Home() {
                     </div>
                     <div className='completadas'> 
                         <nav>
-                            <p>Completadas</p> 
+                            <p className='titulo'>Completadas</p> 
                         </nav>
                         <div className='tareas_completadas'>
                             <GenericList data={tasks_C}/>

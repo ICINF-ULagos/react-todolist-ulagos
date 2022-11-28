@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 
-import { GenericList } from '../../components/common'
+//import { GenericList } from '../../components/common'
+
+import HomeScreen from '../taskboard/Taskboard'
 
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzcyYWQ3OTAxNWRiMjAwMTc1NGEwZDkiLCJpYXQiOjE2Njg0NjQ0MjV9.YDKiwb-kpBYZ7FqOsJFWwaf35DVZO597NfBfB4YstbI"
 
@@ -66,12 +68,7 @@ function Home() {
                 <input type="text" name="description" />
                 <button type="submit">Nueva tarea</button>
             </form>
-            
-            <GenericList data={tasks}/>
-
-            <div style={{ display: 'flex' }}>
-
-            </div>
+            <HomeScreen />
         </header>
     )
 }
