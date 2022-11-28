@@ -1,13 +1,11 @@
 import { useState } from 'react'
+import useTodoListApi from '../../../hooks/useTodoListApi'
 
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzcyYWQ3OTAxNWRiMjAwMTc1NGEwZDkiLCJpYXQiOjE2Njg0NjQ0MjV9.YDKiwb-kpBYZ7FqOsJFWwaf35DVZO597NfBfB4YstbI"
 
-const headers = {
-  'Content-Type': 'application/json',
-  'Authorization': 'Bearer ' + token
-}
-
 const TodoCard = ({number, id, title, isDone }) => {
+
+  const { update, remove } = useTodoListApi(token);
 
   const [isCompleted, setIsCompleted] = useState(isDone)
 
@@ -16,21 +14,13 @@ const TodoCard = ({number, id, title, isDone }) => {
       "completed": !isCompleted
     }
 
-    const response = await fetch(
-      `https://api-nodejs-todolist.herokuapp.com/task/${id}`,
-      {method: 'PUT', headers, body: JSON.stringify(body)})
-    const responseBody = response.ok ? await response.json() : await response.text();
-    console.log(responseBody)
+    await update(id, body);
 
     setIsCompleted(!isCompleted)
-
   }
 
   const handleDelete = async () => {
-    await fetch(
-      `https://api-nodejs-todolist.herokuapp.com/task/${id}`,
-      { method: 'DELETE', headers }
-    )
+    await remove(id);
   }
 
   return (

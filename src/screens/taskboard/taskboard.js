@@ -1,27 +1,17 @@
 import { useEffect, useState } from 'react';
 import TodoCard from '../../components/common/TodoCard/todoCard'
 
+import useTodoListApi from '../../hooks/useTodoListApi'
+
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzcyYWQ3OTAxNWRiMjAwMTc1NGEwZDkiLCJpYXQiOjE2Njg0NjQ0MjV9.YDKiwb-kpBYZ7FqOsJFWwaf35DVZO597NfBfB4YstbI"
 
-const headers = {
-  'Content-Type': 'application/json',
-  'Authorization': 'Bearer ' + token
-}
 
 const TaskBoard = () => {
-  const [todoData, setTododata] = useState([])
+  const { data: todoData, loading: loadingTodoTask, getAll: getAllTodoTask } = useTodoListApi(token);
+
   useEffect(() => {
-    fetchTodoData()
-  },)
-
-  const fetchTodoData = async () => {
-
-    const response = await fetch("https://api-nodejs-todolist.herokuapp.com/task", { headers })
-    const responseBody = response.ok ? await response.json() : await response.text();
-
-    setTododata(responseBody.data)
-  }
-  
+    getAllTodoTask()
+  },[])
 
   return (
     <main style={{
@@ -31,17 +21,18 @@ const TaskBoard = () => {
       gridGap: '4rem',
       padding: '2rem 6rem'
     }}>
-    {
-      todoData.map((item, index) => 
-        <TodoCard 
-          key={item._id}
-          number={index}
-          id={item._id}
-          title={item.description}
-          isDone={item.completed}
-        />
-      )
-    }
+      {
+        loadingTodoTask ? <p style={{ color: 'white' }}>Loading...</p> :
+          todoData.map((item, index) =>
+            <TodoCard
+              key={item._id}
+              number={index}
+              id={item._id}
+              title={item.description}
+              isDone={item.completed}
+            />
+          )
+      }
     </main>
   )
 }
