@@ -4,19 +4,19 @@ import { GenericList } from '../../components/common'
 
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzcyYWQ3OTAxNWRiMjAwMTc1NGEwZDkiLCJpYXQiOjE2Njg0NjQ0MjV9.YDKiwb-kpBYZ7FqOsJFWwaf35DVZO597NfBfB4YstbI"
 
-const listExample = [
-    {
-        'name': "a"
-    },{
-        'name': "b"
-    },{
-        'name': "c"
-    },{
-        'name': "d"
-    },{
-        'name': "e"
-    }
-]
+//const listExample = [
+//    {
+//        'name': "a"
+//    },{
+//        'name': "b"
+//    },{
+//        'name': "c"
+//    },{
+//        'name': "d"
+//    },{
+//        'name': "e"
+//    }
+//]
 
 function Home() {
     const [tasks, setTasks] = useState([]);

@@ -58,7 +58,8 @@ nav{
 }
 .pendientes{
   float: left;
-  width: 47%;
+  min-width: 47%;
+  max-width: 49%;
   height: fit-content;
   border: 1px solid black;
 }
@@ -70,7 +71,8 @@ nav{
 }
 .completadas{
   float: right;
-  width: 47%;
+  min-width: 47%;
+  max-width: 49%;
   border: 1px solid black;
   height: fit-content;
 }
@@ -153,4 +155,35 @@ ul{
   background-image: none;
   border: none; 
   padding: none;
+}
+
+.modal{
+  height: fit-content;
+  width: fit-content;
+  
+}
+.modal_pendiente{
+  background-image: linear-gradient(to bottom, #ffff3c, #ffe089, #ffdce0, #fff0ff, #ffffff);
+  border: 1px solid black;
+}
+
+.modal_completado{
+  background-image: linear-gradient(to bottom, #ffff3c, #ffe089, #ffdce0, #fff0ff, #ffffff);
+  border: 1px solid black;
+}
+.modal_pendiente:hover{
+  background-image: linear-gradient(to bottom, #ffff3c, #ffe089, #ffdce0, #fff0ff, #ffffff);
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.modal_completado:hover{
+  background-image: linear-gradient(to bottom, #ffff3c, #ffe089, #ffdce0, #fff0ff, #ffffff);
+  border: 1px solid black;
+  cursor: pointer;
+}
+.contenedor_modal{
+height: fit-content;
+display: flex;
+justify-content: flex-end;
 }
