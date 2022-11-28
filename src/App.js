@@ -1,5 +1,4 @@
-import HomeScreen from './screens/home/home'
-import TaskBoard from './screens/taskboard/taskboard'
+import HomeScreen from './screens/home/Home'
 import './App.css';
 
 function App() {
@@ -7,7 +6,6 @@ function App() {
   return (
     <div className="App" >
       <HomeScreen/>
-      <TaskBoard/>
     </div>
   );
 }

@@ -24,8 +24,12 @@ const useTodoListApi = (token) => {
 
     }
 
-    const create = () => {
-
+    const create = async (data) => {
+        const request = await fetch(`${baseUrl}/task`, { method: 'POST', headers, body: JSON.stringify(data) });
+        const response = request.ok ? await request.json() : await request.text();
+        console.log(response);
+        
+        return response.data;
     }
 
     const remove = async (id) => {
@@ -42,6 +46,7 @@ const useTodoListApi = (token) => {
 
     return {
         data,
+        setData,
         loading,
         getAll,
         getOne,
