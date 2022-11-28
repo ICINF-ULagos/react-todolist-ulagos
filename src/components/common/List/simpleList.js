@@ -1,8 +1,8 @@
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGRjY2JlYzZiNTVkYTAwMTc1OTcyMmMiLCJpYXQiOjE1NzQ3NTE2ODh9.GPbsl9FLX4VrsGVErodiXypjuz1us4tfD0jwg2_UrzY";
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzcyYWQ3OTAxNWRiMjAwMTc1NGEwZDkiLCJpYXQiOjE2Njg0NjQ0MjV9.YDKiwb-kpBYZ7FqOsJFWwaf35DVZO597NfBfB4YstbI";
 
-const upTask = async (id) => {
+const upTask = async (id, comp) => {
     const body = JSON.stringify({
-        "completed": true,
+        "completed": comp,
     })
     const headers = {
         'Content-Type': 'application/json',
@@ -22,8 +22,8 @@ function simpleList({ data, label = "description" }) {
                             <div class="dropdown">
                                 <button className="itemButton">...</button>
                                 <div class="dropdown-content">
-                                    <a onClick={function(){upTask(item._id)}}>Pendiente</a>
-                                    <a onClick={function(){upTask(item._id)}}>Completado</a>
+                                    <button onClick={function(){upTask(item._id, "false")}}>Pendiente</button>
+                                    <button onClick={function(){upTask(item._id, "true")}}>Completado</button>
                                 </div>
                             </div>
                             <h1 className="titleTask">
