@@ -11,7 +11,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import Login from './screens/auth/Login'
 import Register from './screens/auth/Register'
 import NoMatch from './screens/NoMatch'
-import Home from './screens/home/home'
+import Home from './screens/home/Home'
 import './App.css';
 
 

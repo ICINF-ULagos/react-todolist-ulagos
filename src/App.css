@@ -1,5 +1,22 @@
 .App {
   text-align: center;
+  padding: 8px, 14px;
+}
+body {
+  background-color: #282c34;
+  color: white;
+}
+
+@media (min-width: 600px){
+  .App{
+    padding: 10px, 20px;
+  }
+}
+
+@media (min-width: 900px){
+  .App{
+    padding: 12px, 24px;
+  }
 }
 
 .App-logo {

@@ -1,4 +1,4 @@
-import SimpleList from './simpleList'
+import SimpleList from './SimpleList'
 import ExampleList from './exampleList'
 
 
