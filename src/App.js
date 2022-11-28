@@ -1,12 +1,12 @@
-import HomeScreen from './screens/home/home'
+//import HomeScreen from './screens/home/home'
+import Taskboard from './screens/taskboard/Taskboard';
 import './App.css';
 
 function App() {
 
   return (
     <div className="App">
-      <HomeScreen />
-      
+      <Taskboard />
     </div>
   );
 }
