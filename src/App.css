@@ -24,6 +24,7 @@
   color: white;
 }
 
+
 .App-link {
   color: #61dafb;
 }
@@ -35,4 +36,29 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+nav{
+  border: 1px solid black;
+  max-height: 5vh;
+  min-height: 4vh;
+}
+.pendientes{
+  float: left;
+  min-width: 47%;
+  max-width: 49%;
+  height: fit-content;
+  border: 1px solid black;
+}
+.pendientes nav{
+  background-image: linear-gradient(to bottom, #ffff3c, #ffe089, #ffdce0, #fff0ff, #ffffff);
+}
+.tareas_pendientes{
+  display: flex;
+  justify-content: space-around;
+  width: fit-content;
+  padding: 3vh;
+}
+.pendientes a{
+  font-weight: bold;
 }
