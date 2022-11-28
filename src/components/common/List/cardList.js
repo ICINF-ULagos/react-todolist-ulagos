@@ -1,7 +1,21 @@
-import{useRef} from 'react'
+import{useRef,useState,useEffect} from 'react'
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzcyYWQ3OTAxNWRiMjAwMTc1NGEwZDkiLCJpYXQiOjE2Njg0NjQ0MjV9.YDKiwb-kpBYZ7FqOsJFWwaf35DVZO597NfBfB4YstbI"
 function CardList({ data, label = "description"}) {
+    const [setTasks] = useState([]);
     const nameTask = useRef([])
+    
+    useEffect(() => {
+        (async () => {
+            const headers = {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            }
+            const response = await fetch("https://api-nodejs-todolist.herokuapp.com/task", { headers })
+            const responseBody = response.ok ? await response.json() : await response.text();
+
+            setTasks(responseBody.data)
+        })()
+    }, []);
 
     const UpdateTask = async (id) => {
         const body = JSON.stringify({
@@ -14,6 +28,7 @@ function CardList({ data, label = "description"}) {
         }
 
         await fetch("https://api-nodejs-todolist.herokuapp.com/task/"+id, { method: "PUT", body, headers })
+        console.log("eliminado")
     }
 
     const DeleteTask = async(id)=>{
