@@ -102,7 +102,7 @@ h1 {
   padding: 1%;
   display: grid;
   border-radius: 10px;
-  border-left: 3px solid #fa3c4b;
+  border-left: 3px solid #ff7614;
   background-color: #ffffff;
   color: black;
   width: 300px;
@@ -110,8 +110,23 @@ h1 {
   overflow-wrap: break-word;
 }
 
+.todo-row:nth-child(4n + 1) {
+  border-left: 3px solid #9b00fa;
+}
+
+.todo-row:nth-child(4n + 2) {
+  border-left: 3px solid #fa0087;
+}
+
+.todo-row:nth-child(4n + 3) {
+  border-left: 3px solid #149fff ;
+}
+
 .todo-row h1{
   font-size: 30px;
+  margin: 0 auto 2%;
+  display: inline-block;
+  
 }
 
 .columnHeading {
@@ -146,6 +161,7 @@ h1 {
   background-color: transparent;
   font-size: 30px;
   cursor: pointer;
+
 }
 
 .titleTask{
@@ -160,6 +176,7 @@ h1 {
 .dropdown {
   display: inline-block;
   position: relative;
+  
 }
 
 .dropdown-content {

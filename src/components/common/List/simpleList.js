@@ -8,7 +8,9 @@ const upTask = async (id, comp) => {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + token
     }
-    await fetch("https://api-nodejs-todolist.herokuapp.com/task/"+id, { method: "PUT", body, headers })
+    const response = await fetch("https://api-nodejs-todolist.herokuapp.com/task/"+id, { method: "PUT", body, headers })
+    const responseBody = response.ok ? await response.json() : await response.text();
+    window.location.reload(false);
 }
 
 function simpleList({ data, label = "description" }) {
@@ -19,17 +21,20 @@ function simpleList({ data, label = "description" }) {
                 data.map(function (item, index) {
                     return (
                         <div className="todo-row">
-                            <div class="dropdown">
-                                <button className="itemButton">...</button>
-                                <div class="dropdown-content">
-                                    <button onClick={function(){upTask(item._id, "false")}}>Pendiente</button>
-                                    <button onClick={function(){upTask(item._id, "true")}}>Completado</button>
+                            <div>
+                                <div class="dropdown">                                 
+                                    <button className="itemButton">...</button>
+                                    <div class="dropdown-content">
+                                        <button onClick={function(){upTask(item._id, "false")}}>Pendiente</button>
+                                        <button onClick={function(){upTask(item._id, "true")}}>Completado</button>
+                                    </div>
                                 </div>
+                                <h1 className="titleTask">
+                                    Tarea {index + 1}
+                                </h1>
+                                <li className="itemTask" key={index}>{item[label]}</li>
                             </div>
-                            <h1 className="titleTask">
-                                Tarea {index + 1}
-                            </h1>
-                            <li className="itemTask" key={index}>{item[label]}</li>
+                            
                         </div>
                         
                     )

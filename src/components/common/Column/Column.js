@@ -1,5 +1,4 @@
 
-import React, { useState } from 'react'
 import { GenericList } from '../'
 
 function Column({colTitle , ...props }) {
