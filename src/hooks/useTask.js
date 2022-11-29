@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const useTodoListApi = (token) => {
+const useTask = (token) => {
 
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -57,4 +57,4 @@ const useTodoListApi = (token) => {
 }
 
 
-export default useTodoListApi;
+export default useTask;

@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 import TaskBoard from './components/Taskboard'
-import useTodoListApi from '../../hooks/useTodoListApi'
+import useTask from '../../hooks/useTask'
 
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzcyYWQ3OTAxNWRiMjAwMTc1NGEwZDkiLCJpYXQiOjE2Njg0NjQ0MjV9.YDKiwb-kpBYZ7FqOsJFWwaf35DVZO597NfBfB4YstbI"
 
 function Home() {
-    const { data: tasks, setData: setTasks, loading: loadingTasks, getAll: getAllTasks, create: createTask } = useTodoListApi(token);
+    const { data: tasks, setData: setTasks, loading: loadingTasks, getAll: getAllTasks, create: createTask } = useTask(token);
 
     const submitTask = async (event) => {
         event.preventDefault();
