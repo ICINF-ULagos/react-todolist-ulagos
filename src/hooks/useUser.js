@@ -1,78 +1,69 @@
 import { useState } from 'react';
 
-const useUser = (token) => {
+const useUser = () => {
 
-    const [CurrentUSer, setCurrentUser] = useState([]);
+    const [currentUser, setCurrentUser] = useState(null);
     const [loading, setLoading] = useState(false);
 
     const baseUrl = "https://api-nodejs-todolist.herokuapp.com";
     const headers = {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + token
+        'Authorization': 'Bearer ' + currentUser?.token ?? ""
     }
 
-    const getAll = async () => {
-        setLoading(true);
-        const request = await fetch(`${baseUrl}/task`, { headers });
-        const response = request.ok ? await request.json() : await request.text();
-
-        setCurrentUser(response.CurrentUSer);
-        setLoading(false);
-    }
-
-    const getOne = () => {
-
-    }
-
-    const createUser = async (CurrentUSer) => {
-        const request = await fetch(`${baseUrl}/task`, { method: 'POST', headers, body: JSON.stringify(CurrentUSer) });
+    const create = async (user) => {
+        const request = await fetch(`${baseUrl}/user/register`, { method: 'POST', headers, body: JSON.stringify(user) });
         const response = request.ok ? await request.json() : await request.text();
         console.log(response);
-        
-        return response.CurrentUSer;
+
+        return response.token; // ????? REVISAR
     }
 
-    const removeUser = async (CurrentUSer) => {
-        const request = await fetch(`${baseUrl}/task/${id}`, { method: 'DELETE', headers });
+    const remove = async () => {
+        const request = await fetch(`${baseUrl}/user/me`, { method: 'DELETE', headers });
         const response = request.ok ? await request.json() : await request.text();
         console.log(response);
     }
 
-    const updateUSer = async (id, CurrentUSer) => {
-        const request = await fetch(`${baseUrl}/task/${id}`, { method: 'PUT', headers, body: JSON.stringify(CurrentUSer) });
+    const updateUser = async (user) => {
+        const request = await fetch(`${baseUrl}/user/me`, { method: 'PUT', headers, body: JSON.stringify(user) });
         const response = request.ok ? await request.json() : await request.text();
         console.log(response);
     }
-    const loginUSer = async(CurrentUSer)=>{
 
-
-        const request = await fetch(`${baseUrl}/task/${id}`, { method: "POST", body: JSON.stringify(CurrentUSer), headers })
+    const loginUser = async (user) => {
+        const request = await fetch(`${baseUrl}/user/login`, { method: "POST", body: JSON.stringify(user), headers })
         const response = request.ok ? await response.json() : await response.text();
-        if(response.ok){
-            sessionStorage.setItem("user", JSON.stringify(response.user));
-            sessionStorage.setItem("token", response.token);
-        }
-        
-        return response.data;
 
-    } 
-    const logoutUSer = async(CurrentUSer)=>{
-        const request = await fetch(`${baseUrl}/task/${id}`, { method: 'POST', headers, body: JSON.stringify(CurrentUSer) });
+        if (!request.ok) {
+            throw new Error(response);
+        }
+
+        sessionStorage.setItem("user", JSON.stringify(response.user));
+        sessionStorage.setItem("token", response.token);
+        setCurrentUser({
+            ...response.user,
+            token: response.token
+        });
+
+        return response;
+    }
+
+    const logoutUser = async () => {
+        const request = await fetch(`${baseUrl}/user/logout`, { method: 'POST', headers });
         const response = request.ok ? await request.json() : await request.text();
         console.log(response)
-    } 
+    }
 
     return {
-        CurrentUSer,
+        currentUser,
         setCurrentUser,
         loading,
-        getAll,
-        getOne,
-        createUser,
-        removeUser,
-        updateUSer,
-        loginUSer,
-        logoutUSer
+        create,
+        remove,
+        update: updateUser,
+        login: loginUser,
+        logout: logoutUser
     };
 }
 
