@@ -3,22 +3,15 @@ import useUser from '../../hooks/useUser';
 
 
 function Register() {
-  const { create, isLoading } = useUser()
+  const {isLoading } = useUser()
 
-  const nameRef = useRef()
-  const emailRef = useRef()
-  const passRef = useRef()
-  const ageRef = useRef()
+  const nameRefi = useRef()
+  const emailRefi = useRef()
+  const passRefi = useRef()
+  const ageRefi = useRef()
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
-    const testing = create({
-      name: nameRef.current.value,
-      email: emailRef.current.value,
-      password: passRef.current.value,
-      age: ageRef.current.value
-    })
   }
 
   return (
@@ -28,10 +21,10 @@ function Register() {
         display: "flex",
         flexDirection: "column",
         }} onSubmit={ handleSubmit }>
-        <input ref={nameRef} placeholder="John Doe"/>
-        <input ref={emailRef} type="email" placeholder="john@doe.con"/>
-        <input ref={passRef} type="password" placeholder="password"/>
-        <input ref={ageRef} type="number" min="12" placeholder="69"/>
+        <input ref={nameRefi} placeholder="John Doe"/>
+        <input ref={emailRefi} type="email" placeholder="john@doe.con"/>
+        <input ref={passRefi} type="password" placeholder="password"/>
+        <input ref={ageRefi} type="number" min="12" placeholder="69"/>
         <button style={{
           width: "10rem",
           backgroundColor: "#4CAF50",
