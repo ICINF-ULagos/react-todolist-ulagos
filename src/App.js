@@ -13,6 +13,7 @@ import Register from './screens/auth/Register'
 import NoMatch from './screens/NoMatch'
 import Home from './screens/home/Home'
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function Dashboard() {
