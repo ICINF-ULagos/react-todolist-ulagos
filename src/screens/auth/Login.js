@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
+import useUser from "../../hooks/useUser";
 
 function Login() {
     const [message, setMessage] = useState(null);
     const navigate = useNavigate();
+    const { login } = useUser();
 
     const handlerSubmit = async (event) => {
         try {
@@ -12,26 +14,15 @@ function Login() {
             const formData = new FormData(event.target);
             const formValues = Object.fromEntries(formData); // PARSE JSON
 
-            const headers = {
-                'Content-Type': 'application/json',
-            }
-            const body = JSON.stringify(formValues)
+            const result = await login(formValues);
 
-            const response = await fetch("https://api-nodejs-todolist.herokuapp.com/user/login", { method: "POST", body, headers })
-            const responseBody = response.ok ? await response.json() : await response.text();
+            console.log(result)
 
-            if (response.ok) {
-                sessionStorage.setItem("user", JSON.stringify(responseBody.user));
-                sessionStorage.setItem("token", responseBody.token);
-                setMessage(null)
-                navigate('/')
-            } else {
-                setMessage(responseBody)
-            }
-
-            console.log(responseBody)
+            navigate('/')
         } catch (error) {
+            console.info(error.message)
             console.error(error)
+            setMessage(error.message)
         }
     }
 
