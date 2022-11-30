@@ -1,11 +1,12 @@
 import { useState } from 'react'
+import useTask from '../../../hooks/useTask'
 import useUser from '../../../hooks/useUser'
 
 const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzcyYWQ3OTAxNWRiMjAwMTc1NGEwZDkiLCJpYXQiOjE2Njg0NjQ0MjV9.YDKiwb-kpBYZ7FqOsJFWwaf35DVZO597NfBfB4YstbI"
 
 const TodoCard = ({number, id, title, isDone }) => {
 
-  const { update, remove } = useUser(token);
+  const { update, remove } = useTask(token);
 
   const [isCompleted, setIsCompleted] = useState(isDone)
 
